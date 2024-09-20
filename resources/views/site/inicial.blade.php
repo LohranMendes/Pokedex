@@ -1,5 +1,9 @@
 @extends('layout.master')
 @section('titulo', 'Início')
+@push('js')
+    <script src="{{ asset('js/pokedex-api.js')}}"> </script>
+    <script src="{{ asset('js/pokemon-random.js')}}"> </script>
+@endpush
 
 @section('conteudo')
     <div class="container_capa">
@@ -12,54 +16,39 @@
         <div class="pokemon_random_card">
             <img src="{{asset('img/pokebolas/fundo_pokebola.png')}}" class="pokebola_detalhe">
             <div class="fundo_pokemon">
-                <img src="{{asset('img/pokemons/bulbasaur.png')}}" class="pokemon_random">
+                <img src="{{asset('img/interrogacao.png')}}" class="pokemon_random">
             </div>
             <div class="info_pokemon">
                 <div class="id_pokemon">
-                    <span class="nome_pokemon"> Bulbassauro </span>
-                    <span class="numero_pokemon"> #0001 </span>
+                    <span class="nome_pokemon"></span>
+                    <span class="numero_pokemon"></span>
                 </div>
                 <div class="detalhes_pokemon">
                     <div>
-                        <span class="antecedente">Tipo(s):</span> <span class="tipo_grama">Grama</span> <span class="tipo_veneno">Veneno</span>
+                        <span class="antecedente">Tipo(s):</span> 
+                        <span id="tipo1" class="tipo"></span>
+                        <span id="tipo2" class="tipo"></span>
                     </div>
                     <div>
-                        <span class="antecedente"> Habilidade(s): </span> <span class="texto">Chicote de videira, Crescimento, Folha de navalha, Síntese </span>
+                        <span class="antecedente"> Habilidade(s): </span> <span id="habilidades" class="texto"></span>
                     </div>
                     <div>
-                        <span class="antecedente"> Gênero(s): </span> <span class="texto">87,5% ♂ — 12,5% ♀ </span>
+                        <span class="antecedente"> Gênero(s): </span> 
+                        <span id="spanGeneros" class="texto">
+                            <span id="macho">%</span> ♂ — <span id="femea">%</span> ♀ 
+                        </span>
                     </div>
                     <div class="conteudos_detalhes_pokemon">
                         <div class="conteudo_pokemon">
-                            <span class="conteudo_pokemon_num"> 0.7m </span>
+                            <span id="altura" class="conteudo_pokemon_num"></span>
                             <span class="conteudo_pokemon_subtitulo"> Altura </span>
                         </div>
                         <div class="conteudo_pokemon">
-                            <span class="conteudo_pokemon_num"> 6.9Kg </span>
+                            <span id="peso" class="conteudo_pokemon_num"></span>
                             <span class="conteudo_pokemon_subtitulo"> Peso </span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="mais_detalhes_pokemon">
-            <div class="secao_detalhes_pokemon">
-                <div class="secao_card">
-                    <span class="secao_titulo_card"> Descrição </span>
-                </div>
-                <div class="triangulo"></div>
-            </div>
-            <div class="secao_detalhes_pokemon">
-                <div class="secao_card">
-                    <span class="secao_titulo_card"> Atributos </span>
-                </div>
-                <div class="triangulo"></div>
-            </div>
-            <div class="secao_detalhes_pokemon">
-                <div class="secao_card">
-                    <span class="secao_titulo_card"> Efetividade </span>
-                </div>
-                <div class="triangulo"></div>
             </div>
         </div>
     </div>
