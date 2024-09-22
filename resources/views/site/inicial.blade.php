@@ -3,6 +3,7 @@
 @push('js')
     <script src="{{ asset('js/pokedex-api.js')}}"> </script>
     <script src="{{ asset('js/pokemon-random.js')}}"> </script>
+    <script src="{{ asset('js/pokedex-cards.js')}}"> </script>
 @endpush
 
 @section('conteudo')
@@ -24,28 +25,32 @@
                     <span class="numero_pokemon"></span>
                 </div>
                 <div class="detalhes_pokemon">
-                    <div>
-                        <span class="antecedente">Tipo(s):</span> 
-                        <span id="tipo1" class="tipo"></span>
-                        <span id="tipo2" class="tipo"></span>
-                    </div>
-                    <div>
-                        <span class="antecedente"> Habilidade(s): </span> <span id="habilidades" class="texto"></span>
-                    </div>
-                    <div>
-                        <span class="antecedente"> Gênero(s): </span> 
-                        <span id="spanGeneros" class="texto">
-                            <span id="macho">%</span> ♂ — <span id="femea">%</span> ♀ 
-                        </span>
-                    </div>
-                    <div class="conteudos_detalhes_pokemon">
-                        <div class="conteudo_pokemon">
-                            <span id="altura" class="conteudo_pokemon_num"></span>
-                            <span class="conteudo_pokemon_subtitulo"> Altura </span>
+                    <div class="conjunto_detalhes">
+                        <div>
+                            <span class="antecedente">Tipo(s):</span> 
+                            <span id="tipo1" class="tipo"></span>
+                            <span id="tipo2" class="tipo"></span>
                         </div>
-                        <div class="conteudo_pokemon">
-                            <span id="peso" class="conteudo_pokemon_num"></span>
-                            <span class="conteudo_pokemon_subtitulo"> Peso </span>
+                        <div>
+                            <span class="antecedente"> Habilidade(s): </span> <span id="habilidades" class="texto"></span>
+                        </div>
+                    </div>
+                    <div class="conjunto_detalhes">
+                        <div>
+                            <span class="antecedente"> Gênero(s): </span> 
+                            <span id="spanGeneros" class="texto">
+                                <span id="macho">%</span>♂ — <span id="femea">%</span>♀ 
+                            </span>
+                        </div>
+                        <div class="conteudos_detalhes_pokemon">
+                            <div class="conteudo_pokemon">
+                                <span id="altura" class="conteudo_pokemon_num"></span>
+                                <span class="conteudo_pokemon_subtitulo"> Altura </span>
+                            </div>
+                            <div class="conteudo_pokemon">
+                                <span id="peso" class="conteudo_pokemon_num"></span>
+                                <span class="conteudo_pokemon_subtitulo"> Peso </span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -55,17 +60,21 @@
 
     <div id="secao_cards_pokemon">
         <div class="top_secao">
-            <div>
+            <div class="top_inicio">
                 <input type="text" class="pesquisa_pokemon" placeholder="Pesquise pelo número ou nome do pokémon">
             </div>
+            <div class="top_titulo">
+                Pokédex
+            </div>
             <div class="top_end">
-                <label name="ordemPokemon" class="hidden"></label>
-                <select class="ordem_pokemon">
-                    <option value=""> Padrão </option>
-                </select>
+                <button type="menu" class="ordem_pokemon">
+                    Tipos
+                    <i class="bi bi-caret-down-fill"></i>
+                </button>
             </div>
         </div>
 
+        <div id="divPokedex"></div>
     </div>
 
 @endsection

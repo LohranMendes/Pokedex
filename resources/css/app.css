@@ -17,28 +17,6 @@ body {
     height: 100%;
 }
 
-@media (min-width: 768px){
-    .container_capa {
-        width: 100%;
-        height: 32.5rem;
-        position: relative;
-        text-align: center;
-        border-bottom: 2px solid black;
-        border-top: 2px solid black;
-    }
-}
-
-@media (max-width: 768px){
-    .container_capa {
-        width: 100%;
-        height: 16rem;
-        position: relative;
-        text-align: center;
-        border-bottom: 2px solid black;
-        border-top: 2px solid black;
-    }
-}
-
 .camada_capa {
     width: 100%;
     height: 100%;
@@ -52,7 +30,7 @@ body {
 }
 
 .logo_capa {
-    width: 50%;
+    width: 40%;
     height: 100%;
     position: absolute;
     z-index: 1;
@@ -60,7 +38,6 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
 
 .logo_header {
     width: 2rem; 
@@ -81,7 +58,6 @@ body {
 .pokemon_random_card {
     width: 70%;
     height: 18rem;
-    padding: theme("spacing.6");
     box-shadow: 0 0px 20px rgb(0 0 0 / 0.25);
     border: 1px solid rgb(229, 21, 21);
     border-radius: 1rem;
@@ -114,6 +90,7 @@ body {
     border-radius: 1rem;
     margin: 5%;
     z-index: 1;
+    box-shadow: inset 0.1rem 0.1rem 0.4rem rgb(0 0 0 / 0.25);
 }
 
 .pokemon_random {
@@ -155,12 +132,19 @@ body {
     font-weight: 500;
 }
 
-.detalhes_pokemon{
+.detalhes_pokemon {
     display: flex;
     flex-direction: column;
     height: auto;
     margin-top: 8%;
     gap: 10px;
+}
+
+.conjunto_detalhes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
 }
 
 .antecedente {
@@ -302,9 +286,13 @@ body {
 
 .top_secao {
     display: grid;
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 30% 40% 30%;
     padding: 0.5rem;
     border-bottom: 1px solid rgb(229, 21, 21);
+}
+
+.top_inicio {
+    display: flex;
 }
 
 .pesquisa_pokemon {
@@ -312,8 +300,22 @@ body {
     border: 2px solid rgb(229, 21, 21);
     color: black;
     background-color:  rgb(248, 248, 248);
-    width: 50%;
+    width: 100%;
     border-radius: 10px;
+    font-size: 1rem;
+}
+
+.pesquisa_pokemon:hover, .pesquisa_pokemon:focus {
+    border: 2px solid rgb(30, 30, 249);
+    outline: none;
+}
+
+.top_titulo {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
 }
 
 .ordem_pokemon {
@@ -323,9 +325,13 @@ body {
     background-color:  white;
     width: 50%;
     border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
 }
 
-.ordem_pokemon:hover, .ordem_pokemon:focus, .pesquisa_pokemon:hover, .pesquisa_pokemon:focus {
+.ordem_pokemon:hover, .ordem_pokemon:focus {
     border: 2px solid rgb(30, 30, 249);
 }
 
@@ -336,4 +342,289 @@ body {
 .top_end {
     display: flex;
     justify-content: end;
+}
+
+
+ #divPokedex {
+    width: calc(100% - 6%);
+    height: 100%;
+    margin: 3%;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+}
+
+.card_pokedex {
+    background-color: aqua;
+    border-radius: 10px;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+.img_pokedex {
+    position: relative;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+    box-shadow: inset 0.1rem 0.1rem 0.4rem black;
+}
+
+.img_pokedex img {
+    width: 5rem;
+    height: 5rem;
+    transition: 0.4s ease-in-out;
+}
+
+.img_pokedex:hover img {
+    transform: scale(1.1);
+}
+
+
+.numero_card_pokemon {
+    font-size: 1em;
+    color: #000000;
+    margin-bottom: 0.3rem;
+}
+
+.nome_card_pokemon {
+    font-size: 1em;
+    color: #000000;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-transform: capitalize;
+} 
+
+.tipo_card {
+    color: white;
+    padding: 4px;
+    border-radius: 5px;
+    font-size: clamp(0.8rem, 1vw, 1rem);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: 1rem;
+    width: 100%;
+    margin-left: 2px;
+    margin-right: 2px;
+    text-align: center;
+    margin-bottom: 0.25rem;
+}
+
+@media (max-width: 1200px){
+    .card_pokedex {
+        background-color: aqua;
+        border-radius: 10px;
+        width: calc(75% - 5%);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10%;
+        margin-right: 2.5%;
+        margin-left: 2.5%;
+    }
+}
+
+@media (max-width: 960px){
+    .img_pokedex {
+        padding: 1rem;
+    }
+
+    .img_pokedex img {
+        width: 4rem;
+        height: 4rem;
+        transition: 0.4s ease-in-out;
+    }
+}
+
+@media (max-width: 900px){
+    .card_pokedex {
+        border-radius: 10px;
+        width: calc(65% - 5%);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10%;
+        margin-right: 2.5%;
+        margin-left: 2.5%;
+    }
+
+    #divPokedex {
+        grid-template-columns: 33% 33% 34%;
+        justify-items: center;
+    }
+}
+
+@media (min-width: 768px){
+    .container_capa {
+        width: 100%;
+        height: 32.5rem;
+        position: relative;
+        text-align: center;
+        border-bottom: 2px solid black;
+        border-top: 2px solid black;
+    }
+}
+
+@media (max-width: 768px){
+    .container_capa {
+        width: 100%;
+        height: 24rem;
+        position: relative;
+        text-align: center;
+        border-bottom: 2px solid black;
+        border-top: 2px solid black;
+    }
+
+    .pokemon_random_card {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .fundo_pokemon {
+        height: 10rem;
+    }
+
+    .info_pokemon {
+        display: block;
+        margin-top: 0px;
+    }
+
+    .id_pokemon {
+        margin-top: 0px;
+    }
+
+    .detalhes_pokemon {
+        margin-top: 2%;
+        flex-direction: row;
+    }
+
+    .pokemon_random_card {
+        height: auto;
+    }
+
+    .antecedente, .texto, .conteudo_pokemon_num {
+        font-size: clamp(0.5rem, 1.7vw, 1.5rem);
+    }
+
+    .tipo {
+        font-size: clamp(0.5rem, 1.5vw, 1.5rem);
+    }
+}
+
+@media (max-width: 600px){
+    .top_secao {
+        grid-template-columns: 100%;
+    }
+
+    .container_capa {
+        width: 100%;
+        height: 16rem;
+        position: relative;
+        text-align: center;
+        border-bottom: 2px solid black;
+        border-top: 2px solid black;
+    }
+}
+
+@media (max-width: 500px){
+    .detalhes_pokemon {
+        margin-top: 2%;
+        flex-direction: column;
+        gap: 0px;
+    }
+
+    
+    .nome_pokemon, .numero_pokemon {
+        font-size: clamp(1.2rem, 2vw, 3rem);
+    }
+
+    .antecedente, .texto {
+        font-size: clamp(0.7rem, 1.7vw, 1.5rem);
+    }
+
+    .conteudo_pokemon_num {
+        font-size: clamp(0.7rem, 1.7vw, 1.5rem);
+    }
+
+    .conjunto_detalhes {
+        gap: 4px;
+    }
+
+    #divPokedex {
+        grid-template-columns: repeat(2, 50%);
+        justify-items: center;
+    }
+
+    .card_pokedex {
+        border-radius: 10px;
+        width: calc(65% - 5%);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10%;
+        margin-right: 2.5%;
+        margin-left: 2.5%;
+    }
+}
+
+@media (max-width: 350px){
+    .container_capa {
+        width: 100%;
+        height: 12rem;
+        position: relative;
+        text-align: center;
+        border-bottom: 2px solid black;
+        border-top: 2px solid black;
+    }
+
+    .img_pokedex img {
+        width: 40px;
+        height: 40px; 
+    }
+}
+
+@media (max-width: 300px){
+    .tipos_card {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+    }
+
+    #divPokedex {
+        grid-template-columns: repeat(1, 100%);
+        justify-items: center;
+    }
+}
+
+@media (max-width: 250px){
+
+    
+    .nome_pokemon, .numero_pokemon {
+        font-size: clamp(0.9rem, 2vw, 3rem);
+    }
+
+    .antecedente, .texto {
+        font-size: clamp(0.5rem, 1.2vw, 1.5rem);
+    }
+
+    .conteudo_pokemon_num {
+        font-size: clamp(0.5rem, 1.2vw, 1.5rem);
+    }
+
+    .ordem_pokemon {
+        width: 100%;
+    }
 }

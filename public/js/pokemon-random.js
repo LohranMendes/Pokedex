@@ -16,7 +16,7 @@ async function renderizarPokemonRandom(){
     const pesoPokemon = document.getElementById('peso');
     const alturaPokemon = document.getElementById('altura');
 
-    const random = await getPokemon();
+    const random = await getPokemonRandom();
 
     //Atribui o nome buscado no local
     nomePokemon.textContent = random.nome;
@@ -50,8 +50,8 @@ async function renderizarPokemonRandom(){
         let calcGeneroF = (random.genero/8)*100;
         let calcGeneroM = 100 - calcGeneroF;
 
-        generoM.textContent = calcGeneroM;
-        generoF.textContent = calcGeneroF;
+        generoM.textContent = calcGeneroM + '%';
+        generoF.textContent = calcGeneroF + '%';
     }
 
 }
@@ -67,7 +67,7 @@ function capitalizeHabilidades(str){
 }
 
 // Função que define os tipos
-function classTipos(str, tipo1Pokemon, tipo2Pokemon, pokemonFundo){
+function classTipos(str, tipo1Pokemon, tipo2Pokemon = null, pokemonFundo = null){
     // Separa os tipos de acordo com a vírgula
     let tiposArray = str.split(', ');
 
@@ -89,17 +89,20 @@ function classTipos(str, tipo1Pokemon, tipo2Pokemon, pokemonFundo){
         psychic: { class: 'psiquico', texto: 'Psíquico', fundo: `url('img/fundos/bosque.jpg') no-repeat center`},
         ground: { class: 'terrestre', texto: 'Terrestre', fundo: `url('img/fundos/montanha.jpeg') no-repeat center`},
         poison: { class: 'veneno', texto: 'Venenoso', fundo: `url('img/fundos/bosque.jpg') no-repeat center`},
-        Flying: {class: 'voador', texto: 'Voador', fundo: `url('img/fundos/sky.jpeg') no-repeat center`}
+        flying: {class: 'voador', texto: 'Voador', fundo: `url('img/fundos/sky.jpeg') no-repeat center`}
     };
 
     // Percorre os tipos define o fundo, a classe e o texto dos tipos
     tiposArray.forEach((tipo, indice) => {
-        console.log(tiposPokemon[tipo]);
         if(tiposPokemon[tipo]){
             const op = indice == 0 ? tipo1Pokemon : tipo2Pokemon;
-            op.classList.add(tiposPokemon[tipo].class);
-            op.textContent = tiposPokemon[tipo].texto;
-            if(indice == 0){
+            if(op){
+                op.classList.add(tiposPokemon[tipo].class);
+                op.textContent = tiposPokemon[tipo].texto;
+            }
+            
+
+            if(indice == 0 && pokemonFundo){
                 pokemonFundo.style.background = tiposPokemon[tipo].fundo;
                 pokemonFundo.style.backgroundSize = "cover";
             }
