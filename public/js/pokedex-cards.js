@@ -19,18 +19,30 @@ const colors = {
     normal: '#F5F5F5'
 }
 
-async function renderizarPokemonCards(){
-    const dadosPokemon = await getPokemon();
+async function renderizarPokemonCards(dados = null){
+    let dadosPokemon;
+
+    if(dados == null){
+        dadosPokemon = await getPokemon();
+    }
+    else {
+        dadosPokemon = await dados;
+    }
+
     const divPokedex = document.getElementById('divPokedex');
+    divPokedex.innerHTML = '';
+    divPokedex.classList.add('pokedex');
+    divPokedex.style.display = 'grid';
+    divPokedex.style.removeProperty('justify-content');
+    divPokedex.style.removeProperty('font-size');
+
 
     dadosPokemon.forEach(pokemon => {
         let tipos = pokemon.tipos.split(', ');
-        console.log(tipos[0]);
 
         const divCard = document.createElement('div');
         divCard.classList.add('card_pokedex');
         divCard.style.background = colors[tipos[0]];
-
         
         const divImg = document.createElement('div');
         divImg.classList.add('img_pokedex');

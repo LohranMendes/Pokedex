@@ -61,20 +61,46 @@
     <div id="secao_cards_pokemon">
         <div class="top_secao">
             <div class="top_inicio">
-                <input type="text" class="pesquisa_pokemon" placeholder="Pesquise pelo número ou nome do pokémon">
+                <input onkeypress="clickEnter(event)" type="text" class="pesquisa_pokemon" placeholder="Pesquise pelo número ou nome do pokémon">
             </div>
             <div class="top_titulo">
                 Pokédex
             </div>
             <div class="top_end">
-                <button type="menu" class="ordem_pokemon">
+                <button id="menuBotão" type="menu" class="ordem_pokemon">
                     Tipos
                     <i class="bi bi-caret-down-fill"></i>
                 </button>
+                <div id="menuTipos" class="menu_tipos">
+                    <ol id="listaTipos" class="lista_tipos">
+                        <li> <span id="grass" title="grama" class="grama item"></span> </li>
+                        <li> <span id="poison" title="veneno" class="veneno item"></span> </li>
+                        <li> <span id="flying" title="voador" class="voador item"></span> </li>
+                        <li> <span id="fire" title="fogo" class="fogo item"></span> </li>
+                        <li> <span id="water" title="agua" class="agua item"></span> </li>
+                        <li> <span id="normal" title="normal" class="normal item"></span> </li>
+                        <li> <span id="electric" title="eletrico" class="eletrico item"></span> </li>
+                        <li> <span id="ice" title="gelo" class="gelo item"></span> </li>
+                        <li> <span id="ground" title="terrestre" class="terrestre item"></span> </li>
+                        <li> <span id="fighting" title="lutador" class="lutador item"></span> </li>
+                        <li> <span id="psychic" title="psíquico" class="psiquico item"></span> </li>
+                        <li> <span id="rock" title="pedra" class="pedra item"></span> </li>
+                        <li> <span id="bug" title="inseto" class="inseto item"></span> </li>
+                        <li> <span id="ghost" title="fantasma" class="fantasma item"></span> </li>
+                        <li> <span id="steel" title="aco" class="aco item"></span> </li>
+                        <li> <span id="dragon" title="dragao" class="dragao item"></span> </li>
+                        <li> <span id="fairy" title="fada" class="fada item"></span> </li>
+                        <li id="tipoTodos" class="item"> Todos </li>
+                    </ol>
+                </div>
             </div>
         </div>
 
-        <div id="divPokedex"></div>
+        <div id="divPokedex" class="pokedex"></div>
     </div>
+
+@push('js-baixo')
+    <script src="{{ asset('js/pokemon-extras.js')}}"> </script>
+@endpush
 
 @endsection
