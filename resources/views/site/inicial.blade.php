@@ -61,13 +61,13 @@
     <div id="secao_cards_pokemon">
         <div class="top_secao">
             <div class="top_inicio">
-                <input onkeypress="clickEnter(event)" type="text" class="pesquisa_pokemon" placeholder="Pesquise pelo número ou nome do pokémon">
+                <input onkeypress="clickEnter(event)" type="text" title="barra de pesquisa" class="pesquisa_pokemon" placeholder="Pesquise pelo número ou nome do pokémon">
             </div>
             <div class="top_titulo">
                 Pokédex
             </div>
             <div class="top_end">
-                <button id="menuBotão" type="menu" class="ordem_pokemon">
+                <button id="menuBotão" title="tipos" type="menu" class="ordem_pokemon">
                     Tipos
                     <i class="bi bi-caret-down-fill"></i>
                 </button>
@@ -97,7 +97,14 @@
         </div>
 
         <div id="divPokedex" class="pokedex"></div>
+        <div class="divPagina">
+            <button id="btnAnt" class="btn_pagina hidden" title="Anterior"> <i class="bi bi-arrow-left-circle-fill icon_pagina"></i> Anterior </button>
+            <button id="btnProx" class="btn_pagina" title="Próximo"> Próximo <i class="bi bi-arrow-right-circle-fill icon_pagina"></i> </button>
+        </div>
     </div>
+
+    <div id="modal"></div>
+    
 
 @push('js-baixo')
     <script src="{{ asset('js/pokemon-extras.js')}}"> </script>

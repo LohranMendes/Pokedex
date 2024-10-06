@@ -32,6 +32,7 @@ async function renderizarPokemonRandom(){
 
     //Define a imagem em SVG vinda da API
     pokemonImg.src = random.sprite;
+    pokemonImg.title = random.nome;
 
     //Define a altura e o peso do Pokémon
     pesoPokemon.textContent = `${random.peso / 10}Kg`
